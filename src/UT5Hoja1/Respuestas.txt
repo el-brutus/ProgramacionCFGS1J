@@ -1,0 +1,78 @@
+1 . En la siguiente figura, se muestra en forma de nube las clases y en forma de rectángulo los objetos
+  que se han construido a partir de las clases. Responde a las preguntas:
+
+a:Hay dos tipos de automovil
+
+b:Hay 3 objetos de automovil
+
+2. A partir de la siguiente imagen:
+
+a. ¿Es Nissan una clase derivada de Automobile? Si
+b. ¿Es Nissan el padre de Sentra? SI
+c. ¿Cuántos hijos tiene Ford? No tiene hijos
+d. ¿Sentra heredará los atributos de Automobile?Si ya que los hereda de nissan
+e. Ford extiende de Automobile. ¿Podríamos tener una clase “Truck” de la que también
+extienda Ford, es decir, herede de ella? Razona tu respuesta.
+No ya que ford ya hereda de Automobile y no estaria bien razonado ya que ford es una marca y truck es un tipo de automovil
+
+3. Responde a las siguientes cuestiones.
+a. ¿Qué se hereda a nivel de código de una clase base a una clase derivada?
+Se heredan atributos y metodos
+
+b. ¿Una clase hija hereda tanto atributos como métodos?
+Si los hereda siempre del padre
+
+c. ¿Qué palabra reservada se utiliza para invocar al constructor de la clase padre desde la
+clase hija?
+super
+
+d. ¿Un constructor hijo siempre invoca a un constructor padre?
+Si ya que al ser un hijo debe estar realacionado con la clase padre
+
+e. Si la clase padre no tiene constructor definido por el desarrollador y la clase hija si tiene,
+¿se generará un error en el constructor de la clase hija si no invocamos al constructor
+padre? Explica tu respuesta.
+No dara error ya que la clase padre generara por defecto un constructor llamando a super()
+
+4 Ejemplos de herencia
+
+Animal → Perro
+
+Vehiculo → Coche
+
+Persona → Estudiante
+
+6 Problema de conflictos
+
+Lo que ocurriria es que si un hijo heredara de 2 padres java no sabria cual aplicar
+
+7 A partir del siguiente diagrama
+a. La clase A es una subclase de la clase C.
+
+b. La clase B es una subclase de la clase C.
+
+c. La clase E es una subclase de la clase A.
+
+d. La clase D es una subclase de la clase B.
+
+e. La clase A no podria ser una subclase de D porque habria un problema de herencia circular
+
+8 Diagrama
+
+Lectura
+  | -> Libro
+  |  -> Novela
+   -> Periódico
+
+11 Video
+a ¿Qué mostrará el código?
+
+Solo los atributos de Video
+
+b ¿Por qué no aparecen director y valoración?
+
+Porque toString() está definido solo en la clase Video
+
+c ¿Cómo solucionarlo?
+
+Sobrescribiendo toString() en Pelicula

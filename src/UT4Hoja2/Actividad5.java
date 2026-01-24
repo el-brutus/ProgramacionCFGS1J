@@ -1,0 +1,19 @@
+package UT4Hoja2;
+
+import java.util.Arrays;
+
+import static java.util.Arrays.sort;
+
+public class Actividad5 {
+    public static void main(String[] args){
+        int[] pagoSemanal = {987,688,1324,450,667,801};
+        int sum=0;
+
+        for (int j=0;j<=5;j++)
+            sum += pagoSemanal[j];
+        System.out.println(sum);
+        //Para corregir este codigo he cambiado el 6 del bucle for por un 5 ya que la longitud es de 6
+        //Si pusieramos 6 la longitud tendria que ser de 7 ya que se cuenta el 0
+
+    }
+}
