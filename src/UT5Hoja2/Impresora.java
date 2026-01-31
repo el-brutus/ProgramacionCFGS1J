@@ -15,12 +15,16 @@ public class Impresora {
         this.impresiondoblecara = impresiondoblecara;
     }
 
-    public int settoner(int cantmaxima){
-    if (cantmaxima < 0 || cantmaxima > 100 || (cantmaxima+ nivel_toner) > 100){
-        return -1;
+    public void setNivel_toner(int nivel_toner) {
+        this.nivel_toner = nivel_toner;
     }
-    nivel_toner += cantmaxima;
-    return nivel_toner;
+
+    public int añadirtoner(int cantmaxima){
+        if (cantmaxima < 0 || cantmaxima > 100 || (cantmaxima+ nivel_toner) > 100){
+            return -1;
+        }
+        nivel_toner += cantmaxima;
+        return nivel_toner;
     }
 
 
