@@ -15,10 +15,6 @@ public class Impresora {
         this.impresiondoblecara = impresiondoblecara;
     }
 
-    public void setNivel_toner(int nivel_toner) {
-        this.nivel_toner = nivel_toner;
-    }
-
     public int añadirtoner(int cantmaxima){
         if (cantmaxima < 0 || cantmaxima > 100 || (cantmaxima+ nivel_toner) > 100){
             return -1;
@@ -28,20 +24,17 @@ public class Impresora {
     }
 
 
-    public int imprimir(int numpaginas){
-    int numhojas;
-    if (impresiondoblecara){
-        numhojas = (numpaginas+1)/2;
-    } else {
-        numhojas = numpaginas;
-    }
-    if (numhojas > nivel_toner){
-        return -1;
-    }
-    nivel_toner -= numhojas;
-    paginasimprimidas += numpaginas;
+    public int imprimir(int paginas) {
+        int hojasNecesarias;
 
-    return numpaginas;
+        if (impresiondoblecara) {
+            hojasNecesarias = (paginas + 1) / 2;
+        } else {
+            hojasNecesarias = paginas;
+        }
+
+        paginasimprimidas += paginas;
+        return hojasNecesarias;
     }
 
     public int getPaginasimprimidas(){
