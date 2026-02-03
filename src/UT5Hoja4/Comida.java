@@ -11,10 +11,6 @@ public class Comida extends Bienes {
 
     @Override
     public String toString() {
-        return "Comida{" +
-                "descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                ", calorias=" + calorias +
-                '}';
+        return descripcion + ", precio: " + precio + ", calorias "+ calorias;
     }
 }
