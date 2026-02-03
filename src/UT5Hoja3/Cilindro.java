@@ -13,6 +13,4 @@ public class Cilindro extends Forma{
     public double area(){
         return Math.PI * altura * (radio* radio);
     }
-
-
 }

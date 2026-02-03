@@ -1,5 +1,7 @@
 package UT5Hoja3;
 
+import UT5Hoja1.Circulo;
+
 public class MainPintura {
     public static void main(String[] args){
         Pintura pintura = new Pintura(250);
@@ -9,6 +11,7 @@ public class MainPintura {
         System.out.println(pintura.pintar(rectangulo));
         System.out.println(pintura.pintar(esfera));
         System.out.println(pintura.pintar(cilindro));
+        Cilindro C = new Cilindro(3,2);
 
     }
 }
