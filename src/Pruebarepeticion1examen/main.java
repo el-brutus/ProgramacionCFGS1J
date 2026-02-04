@@ -17,11 +17,11 @@ public class main {
                 System.out.println("Introduce una IP:");
                 String ip = scanner.nextLine();
 
-                if (comprobador.mascara(ip)) {
+              /*  if (comprobador.mascara(ip)) {
                     System.out.println("La ip es valida");
                 } else {
                     System.out.println("la ip no es valida");
-                }
+                }*/
 
             }
         }

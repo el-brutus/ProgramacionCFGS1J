@@ -9,6 +9,10 @@ public class Libro extends Bienes implements Imponible {
         this.autor = autor;
     }
 
+    public String getAutor() {
+        return autor;
+    }
+
     @Override
 
     public String toString(){

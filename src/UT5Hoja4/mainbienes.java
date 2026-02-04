@@ -12,15 +12,16 @@ public class mainbienes {
         System.out.println(j);
         System.out.println(l);
 
-
         Bienes[] bienes2 = {
                 new Bienes("Camiseta", 20),
                 new Comida("Cochinillo", 30),
                 new Juguete("RC-XD", 30, 18),
                 new Libro("Como respirar", 12, "Pepe")
-
         };
 
-        System.out.println(bienes2[1]);
-    }
+        System.out.println("Bienes array: " + bienes2[1]);
+
+            System.out.println(bienes2[2].toString());
+
+        }
 }
