@@ -4,7 +4,7 @@ public class Libro extends Bienes implements Imponible {
     private String autor;
 
 
-    public Libro(String descripcion, double precio) {
+    public Libro(String descripcion, double precio, String autor) {
         super(descripcion, precio);
         this.autor = autor;
     }

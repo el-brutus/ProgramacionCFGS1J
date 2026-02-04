@@ -10,6 +10,6 @@ public class Juguete extends  Bienes implements Imponible{
 
     @Override
     public String toString(){
-        return descripcion + ", edad minima: "+ edad;
+        return "Descripcion: "+ descripcion +", precio: " +", edad minima: "+ edad;
     }
 }
