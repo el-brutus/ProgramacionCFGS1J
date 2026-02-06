@@ -1,6 +1,6 @@
 package UT5Hoja5;
 
-public class Rectangulo extends Forma implements Redimensionable{
+public class Rectangulo extends Forma implements Redimensionable, Comparable<Rectangulo>{
     private int ancho;
     private int alto;
     public Rectangulo(int numLados, int ancho, int alto) {
@@ -23,5 +23,14 @@ public class Rectangulo extends Forma implements Redimensionable{
     public void redimensionar(int x) {
         ancho = ancho*x;
         alto= alto*x;
+    }
+
+    @Override
+    public int compareTo(Rectangulo x) {
+        return this.getArea() - x.getArea();
+    }
+    @Override
+    public String toString() {
+        return "Rectangulo [area=" + getArea() + "]";
     }
 }
