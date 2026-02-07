@@ -1,7 +1,5 @@
 package UT5Hoja5;
 
-import java.util.Arrays;
-
 public class MainForma {
     public static void main(String[] args){
         Triangulo triangulo = new Triangulo(3,4,5);
@@ -38,7 +36,6 @@ public class MainForma {
 
             System.out.println(mensaje);
 
-            // SOLO aquí se ordena
             if (i == 1) {
                 for (int a = 0; a < rectangulos.length - 1; a++) {
                     for (int b = a + 1; b < rectangulos.length; b++) {
