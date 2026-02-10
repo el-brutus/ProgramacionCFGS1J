@@ -20,8 +20,6 @@ public class mainbienes {
         };
 
         System.out.println("Bienes array: " + bienes2[1]);
-
             System.out.println(bienes2[2].toString());
-
         }
 }

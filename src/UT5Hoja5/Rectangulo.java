@@ -29,6 +29,7 @@ public class Rectangulo extends Forma implements Redimensionable, Comparable<Rec
     public int compareTo(Rectangulo x) {
         return this.getArea() - x.getArea();
     }
+
     @Override
     public String toString() {
         return "Rectangulo [area=" + getArea() + "]";
