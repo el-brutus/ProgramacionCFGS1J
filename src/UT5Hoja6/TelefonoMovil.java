@@ -6,9 +6,9 @@ public class TelefonoMovil {
     private String myNumber;
     private ArrayList<Contacto> myContacts;
 
-    public TelefonoMovil(String myNumber, ArrayList<Contacto> myContacts) {
+    public TelefonoMovil(String myNumber) {
     this.myNumber = myNumber;
-    this.myContacts=myContacts;
+    this.myContacts= new ArrayList<>();
     }
 
     public boolean addNewContact(Contacto nuevocontacto){
@@ -37,6 +37,7 @@ public class TelefonoMovil {
                 return false;
             }
         }
+
         myContacts.set(indice, nuevocontacto);
         return true;
     }
@@ -78,14 +79,15 @@ public class TelefonoMovil {
         return "No hay contactos con ese nombre";
     }
 
-    public String queryContact(String nombre){
+    public Contacto queryContact(String nombre){
         int indice;
         for (int i = 0;i < myContacts.size();i++){
             if (myContacts.get(i).getName().equals(nombre)){
-                return String.valueOf(myContacts.get(i));
+                return myContacts.get(i);
             }
         }
         return null;
+
     }
 
     public void printContacts(){
