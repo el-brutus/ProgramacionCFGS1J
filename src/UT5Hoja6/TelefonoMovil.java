@@ -12,80 +12,44 @@ public class TelefonoMovil {
     }
 
     public boolean addNewContact(Contacto nuevocontacto){
-        for (Contacto contactoexistente : myContacts){
-            if (contactoexistente.getName().equals(nuevocontacto.getName())){
-                return false;
-            }
+        if (findContact(nuevocontacto.getName()) >= 0){
+            return false;
         }
         myContacts.add(nuevocontacto);
         return true;
     }
 
     public boolean updateContact(Contacto contactoantiguo, Contacto nuevocontacto){
-        int indice = -1;
-        for (int i = 0;i < myContacts.size();i++){
-            if (myContacts.get(i).getName().equals(contactoantiguo.getName())){
-                indice = i;
-            }
-        }
-        if (indice == -1){
+        int indice = findContact(contactoantiguo);
+
+        if (indice < 0){
             return false;
         }
 
-        for (Contacto contactos : myContacts){
-            if (contactos.getName().equals(nuevocontacto.getPhoneNumber())){
-                return false;
-            }
+        int indicenuevo = findContact(nuevocontacto.getName());
+        if (indicenuevo >= 0 && indicenuevo != indice){
+            return false;
         }
-
         myContacts.set(indice, nuevocontacto);
         return true;
     }
-    public boolean removeContact(Contacto eliminarcontacto){
-        int indice = -1;
-
-        for (int i = 0;i < myContacts.size();i++){
-            if (myContacts.get(i).getName().equals(eliminarcontacto.getName())){
-                indice = i;
-            }
-        }
-        if ( indice == -1){
+    public boolean removeContact(Contacto contacto){
+        int indice = findContact(contacto);
+        if (indice < 0){
             return false;
         }
 
         myContacts.remove(indice);
         return true;
     }
-    public int findContact(Contacto contacto){
-        int indice= -1;
-        for (int i =0;i < myContacts.size();i++){
-            if (myContacts.get(i).getName().equals(contacto.getName())){
-                indice = i;
-            }
-        }
-        if (indice == -1){
-            return -1;
-        }
 
-        return indice;
-    }
-    public String findContacto(String nombre){
-        int indice= -1;
-        for (int i = 0;i < myContacts.size();i++){
-            if (myContacts.get(i).getName().equals(nombre)){
-                return "Nombre encontrado";
-            }
-        }
-        return "No hay contactos con ese nombre";
-    }
 
     public Contacto queryContact(String nombre){
-        int indice;
-        for (int i = 0;i < myContacts.size();i++){
-            if (myContacts.get(i).getName().equals(nombre)){
-                return myContacts.get(i);
+        int indice =findContact(nombre);
+            if (indice>=0){
+                return myContacts.get(indice);
             }
-        }
+
         return null;
 
     }
@@ -96,6 +60,17 @@ public class TelefonoMovil {
             System.out.println((i + 1) + ". " + myContacts.get(i).getName() + " -> " + myContacts.get(i).getPhoneNumber()
             );
         }
+    }
+    private int findContact(Contacto contacto){
+        return myContacts.indexOf(contacto);
+    }
+    private int findContact(String nombre){
+        for (int i = 0;i < myContacts.size();i++){
+            if (myContacts.get(i).getName().equals(nombre)){
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
