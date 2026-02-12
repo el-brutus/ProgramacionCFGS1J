@@ -14,14 +14,14 @@ public class main {
 
             while (!salir) {
 
-                System.out.print("\nElige una opción: ");
+                System.out.print("Elige una opción: ");
                 int opcion = scanner.nextInt();
                 scanner.nextLine(); // limpiar buffer
 
                 switch (opcion) {
 
                     case 0:
-                        System.out.println("Saliendo del programa...");
+                        System.out.println("Saliendo del programa");
                         salir = true;
                         break;
 
@@ -50,20 +50,20 @@ public class main {
                         break;
 
                     default:
-                        System.out.println("Opción no válida.");
+                        System.out.println("Opcion no valida.");
                 }
             }
         }
 
         private static void mostrarMenu() {
-            System.out.println("\n===== MENÚ =====");
-            System.out.println("0 - Salir");
-            System.out.println("1 - Imprimir contactos");
-            System.out.println("2 - Agregar nuevo contacto");
-            System.out.println("3 - Actualizar contacto existente");
-            System.out.println("4 - Eliminar contacto");
-            System.out.println("5 - Buscar contacto por nombre");
-            System.out.println("6 - Volver a mostrar menú");
+            System.out.println("----- MENÚ -----");
+            System.out.println("0 Salir");
+            System.out.println("1 Imprimir contactos");
+            System.out.println("2 Agregar nuevo contacto");
+            System.out.println("3 Actualizar contacto existente");
+            System.out.println("4 Eliminar contacto");
+            System.out.println("5 Buscar contacto por nombre");
+            System.out.println("6 Volver a mostrar menu");
         }
 
         private static void agregarContacto() {
@@ -78,7 +78,7 @@ public class main {
             if (telefono.addNewContact(contactonuevo)) {
                 System.out.println("Contacto añadido");
             } else {
-                System.out.println("Error: el contacto ya existe.");
+                System.out.println("El contacto ya existe.");
             }
         }
 
