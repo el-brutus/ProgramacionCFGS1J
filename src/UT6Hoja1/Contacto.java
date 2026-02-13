@@ -1,4 +1,4 @@
-package UT5Hoja6;
+package UT6Hoja1;
 
 public class Contacto {
     private String name;

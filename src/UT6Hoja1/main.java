@@ -1,6 +1,5 @@
-package UT5Hoja6;
+package UT6Hoja1;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
