@@ -2,12 +2,14 @@ package UT6Hoja2;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Scanner;
 
 public class Main {
-
+    private static ArrayList<Album> albums = new ArrayList<>();
+    private static LinkedList<Cancion> playList = new LinkedList<>();
     public static void main(String[] args){
-        ArrayList<Album> albums = new ArrayList<>();
-        LinkedList<Cancion> playList = new LinkedList<>();
+
 
         Album album1 = new Album("The Eminem Show","Eminem");
         album1.addSong("White America", 5.24);
@@ -28,8 +30,100 @@ public class Main {
         album2.addToPlaylist("Paseo", playList);
         album2.addToPlaylist("Malabares", playList);
         album2.addToPlaylist("Vacaciones", playList);
-    }
 
+        play(playList);
+    }
+    public static void play(LinkedList<Cancion> playList) {
+
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        boolean goingForward = true;
+
+        ListIterator<Cancion> listIterator = playList.listIterator();
+
+        if (playList.isEmpty()) {
+            System.out.println("No hay canciones en la playlist");
+            return;
+        } else {
+            System.out.println("Reproduciendo " + listIterator.next().toString());
+            imprimirmenu();
+        }
+
+        while (!quit) {
+
+            int action = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (action) {
+
+                case 0:
+                    System.out.println("Saliendo de la playlist...");
+                    quit = true;
+                    break;
+
+                case 1: // siguiente canción
+                    if (!goingForward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        goingForward = true;
+                    }
+
+                    if (listIterator.hasNext()) {
+                        System.out.println("Reproduciendo " + listIterator.next().toString());
+                    } else {
+                        System.out.println("Has llegado al final de la playlist");
+                        goingForward = false;
+                    }
+                    break;
+
+                case 2: // canción anterior
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        goingForward = false;
+                    }
+
+                    if (listIterator.hasNext()) {
+                        System.out.println("Reproduciendo " + listIterator.previous().toString());
+                    } else {
+                        System.out.println("Estás al inicio de la playlist");
+                        goingForward = true;
+                    }
+                    break;
+
+                case 3: // repetir canción
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            System.out.println("Repitiendo " + listIterator.previous().toString());
+                            goingForward = false;
+                        }
+                    } else {
+                        if (listIterator.hasNext()) {
+                            System.out.println("Repitiendo " + listIterator.next().toString());
+                            goingForward = true;
+                        }
+                    }
+                    break;
+
+                case 4:
+                    imprimirplaylist();
+                    break;
+
+                case 5:
+                    imprimirmenu();
+                    break;
+            }
+        }
+    }
+    public static void imprimirplaylist(){
+
+        ListIterator<Cancion> listIterator = playList.listIterator();
+        while (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
+    }
     public static void imprimirmenu(){
         System.out.println("-----MENU-----");
         System.out.println("0 -Salir de la lista de reproduccion");
@@ -40,5 +134,4 @@ public class Main {
         System.out.println("5 -Volver a impair el menu");
         System.out.print("Introduce una opcion: ");
     }
-    public static void play(){}
 }
