@@ -14,7 +14,7 @@ public class Album {
         this.canciones = new ArrayList<>();
     }
 
-    public Cancion findSong(String nombre){
+    private Cancion findSong(String nombre){
         for (Cancion cancion : canciones){
             if (cancion.getTitulo().equals(nombre)){
                 return cancion;
@@ -23,11 +23,12 @@ public class Album {
         return null;
     }
 
-    public boolean addSong(Cancion cancion){
-        if (findSong(cancion.getTitulo()) != null){
+    public boolean addSong(String titulo, double duracion){
+        if (findSong(titulo) != null){
         return false;
         }
-        canciones.add(cancion);
+        Cancion cancion = new Cancion(titulo, duracion);
+        this.canciones.add(cancion);
         return true;
     }
     public boolean addToPlayList(int numero, LinkedList<Cancion> reproduccion){
