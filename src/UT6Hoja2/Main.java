@@ -36,8 +36,8 @@ public class Main {
     public static void play(LinkedList<Cancion> playList) {
 
         Scanner scanner = new Scanner(System.in);
-        boolean quit = false;
-        boolean goingForward = true;
+        boolean salir = false;
+        boolean adelante = true;
 
         ListIterator<Cancion> listIterator = playList.listIterator();
 
@@ -49,7 +49,7 @@ public class Main {
             imprimirmenu();
         }
 
-        while (!quit) {
+        while (!salir) {
 
             int action = scanner.nextInt();
             scanner.nextLine();
@@ -57,52 +57,52 @@ public class Main {
             switch (action) {
 
                 case 0:
-                    System.out.println("Saliendo de la playlist...");
-                    quit = true;
+                    System.out.println("Saliendo de la playlist");
+                    salir = true;
                     break;
 
-                case 1: // siguiente canción
-                    if (!goingForward) {
+                case 1:
+                    if (!adelante) {
                         if (listIterator.hasNext()) {
                             listIterator.next();
                         }
-                        goingForward = true;
+                        adelante = true;
                     }
 
                     if (listIterator.hasNext()) {
                         System.out.println("Reproduciendo " + listIterator.next().toString());
                     } else {
                         System.out.println("Has llegado al final de la playlist");
-                        goingForward = false;
+                        adelante = false;
                     }
                     break;
 
-                case 2: // canción anterior
-                    if (goingForward) {
+                case 2:
+                    if (adelante) {
                         if (listIterator.hasPrevious()) {
                             listIterator.previous();
                         }
-                        goingForward = false;
+                        adelante = false;
                     }
 
                     if (listIterator.hasNext()) {
                         System.out.println("Reproduciendo " + listIterator.previous().toString());
                     } else {
                         System.out.println("Estás al inicio de la playlist");
-                        goingForward = true;
+                        adelante = true;
                     }
                     break;
 
-                case 3: // repetir canción
-                    if (goingForward) {
+                case 3:
+                    if (adelante) {
                         if (listIterator.hasPrevious()) {
                             System.out.println("Repitiendo " + listIterator.previous().toString());
-                            goingForward = false;
+                            adelante = false;
                         }
                     } else {
                         if (listIterator.hasNext()) {
                             System.out.println("Repitiendo " + listIterator.next().toString());
-                            goingForward = true;
+                            adelante = true;
                         }
                     }
                     break;
@@ -114,6 +114,9 @@ public class Main {
                 case 5:
                     imprimirmenu();
                     break;
+
+                default:
+                    System.out.println("Opcion incorrecta");
             }
         }
     }
@@ -129,9 +132,9 @@ public class Main {
         System.out.println("0 -Salir de la lista de reproduccion");
         System.out.println("1 -Reproducir siguiente canción en la lista");
         System.out.println("2 -Reproducir la canción previa");
-        System.out.println("3 -Repetir la cancan actual");
-        System.out.println("4 -Imprimir la list de canciones en la playlist");
-        System.out.println("5 -Volver a impair el menu");
+        System.out.println("3 -Repetir la cancion actual");
+        System.out.println("4 -Imprimir la lista de canciones en la playlist");
+        System.out.println("5 -Volver a imprimir el menu");
         System.out.print("Introduce una opcion: ");
     }
 }
