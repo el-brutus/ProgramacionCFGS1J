@@ -87,9 +87,9 @@ public class Main {
 
                     if (listIterator.hasNext()) {
                         System.out.println("Reproduciendo " + listIterator.previous().toString());
-                    } else {
-                        System.out.println("Estás al inicio de la playlist");
-                        adelante = true;
+                    }
+                    if (!listIterator.hasNext()){
+                        System.out.println("Estas al inicio de la lista");
                     }
                     break;
 
@@ -114,9 +114,24 @@ public class Main {
                 case 5:
                     imprimirmenu();
                     break;
-
+                case 6:
+                    if(playList.isEmpty()){
+                        System.out.println("No hay canciones que eliminar");
+                    }else{
+                        listIterator.remove();
+                        System.out.println("Cancion eliminada");
+                    }
+                    if (listIterator.hasNext()){
+                        System.out.println("Reproduciendo: " + listIterator.next());
+                        adelante=true;
+                    } else if (listIterator.hasPrevious()){
+                        System.out.println("Reproduciendo: "+ listIterator.previous());
+                    }
+                    break;
                 default:
                     System.out.println("Opcion incorrecta");
+                    imprimirmenu();
+                    break;
             }
         }
     }
@@ -135,6 +150,7 @@ public class Main {
         System.out.println("3 -Repetir la cancion actual");
         System.out.println("4 -Imprimir la lista de canciones en la playlist");
         System.out.println("5 -Volver a imprimir el menu");
+        System.out.println("6 -Eliminar cancion");
         System.out.print("Introduce una opcion: ");
     }
 }
