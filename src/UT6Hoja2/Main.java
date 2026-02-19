@@ -85,10 +85,9 @@ public class Main {
                         adelante = false;
                     }
 
-                    if (listIterator.hasNext()) {
+                    if (listIterator.hasPrevious()) {
                         System.out.println("Reproduciendo " + listIterator.previous().toString());
-                    }
-                    if (!listIterator.hasNext()){
+                    } else {
                         System.out.println("Estas al inicio de la lista");
                     }
                     break;
