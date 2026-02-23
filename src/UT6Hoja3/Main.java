@@ -41,29 +41,35 @@ public class Main {
     public static void main(String[] args){
         Map<Integer, Ubicacion> ubicaciones = new Main().ubicaciones;
         Scanner scanner = new Scanner(System.in);
-        int opciones = 1;
-        String opcion ="";
-        while (!opcion.equalsIgnoreCase("Q")){
-            try {
-                System.out.println(ubicaciones.get(opciones).getDescripcion());
 
-                for (Map.Entry<Integer, Ubicacion> ubicacionEntry : ubicaciones.entrySet()){
-                    if (ubicacionEntry.getValue().getId() == opciones){
-                        System.out.println(ubicacionEntry.getValue().getExits());
-                        System.out.println("Introduce una opcion valida: ");
-                        opcion = scanner.nextLine();
 
-                        opciones = ubicacionEntry.getValue().getExits().get(opcion);
-                        System.out.println(opciones);
-                        break;
-                    }
-                }
+        int lugar = 1;
 
-            }catch (NullPointerException a){
-                System.out.println("La opcion introducida no es valida: ");
+
+        while(lugar!=0){
+            System.out.println(ubicaciones.get(lugar).getDescripcion());
+
+            System.out.println("Estas son las direcciones validas: ");
+            for (String opcion: ubicaciones.get(lugar).getExits().keySet()){
+                System.out.print(opcion + " | ");
+            }
+            System.out.println();
+            System.out.println("Introduce una direccion: ");
+            String opcion = scanner.nextLine();
+            opcion= opcion.toUpperCase();
+            if (ubicaciones.get(lugar).getExits().containsKey(opcion)){
+                lugar = ubicaciones.get(lugar).getExits().get(opcion);
+            } else{
+                System.out.println("La direccion introducida no es valida");
+            }
+            if (opcion.equals("Q")){
+                System.out.println("Saliendo del programa....");
+                System.out.println(ubicaciones.get(0).getDescripcion());
+                lugar=0;
             }
         }
 
-        System.out.println(ubicaciones.get(0).getDescripcion());
+
+
     }
 }

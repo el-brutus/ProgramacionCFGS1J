@@ -17,32 +17,31 @@ public class CuerpoCeleste {
     private Set<CuerpoCeleste> satelites;
     private TipoCuerpoCeleste tipoCuerpo;
 
-    public CuerpoCeleste(String nombre, double periodoOrbital, Set<CuerpoCeleste> satelites, TipoCuerpoCeleste tipoCuerpo){
+    public CuerpoCeleste(String nombre, double periodoOrbital, TipoCuerpoCeleste tipoCuerpo){
         this.nombre = nombre;
         this.periodoOrbital = periodoOrbital;
-        this.satelites = satelites;
         this.tipoCuerpo = tipoCuerpo;
         this.satelites = new HashSet<>(
         );
 
     }
 
-    private String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    private double getPeriodoOrbital() {
+    public double getPeriodoOrbital() {
         return periodoOrbital;
     }
 
-    private TipoCuerpoCeleste getTipoCuerpo() {
+    public TipoCuerpoCeleste getTipoCuerpo() {
         return tipoCuerpo;
     }
-    private Set<CuerpoCeleste> getSatelites(){
+    public Set<CuerpoCeleste> getSatelites(){
         return satelites;
     }
 
-    private boolean addSatelite(CuerpoCeleste cuerpoCeleste){
+    public boolean addSatelite(CuerpoCeleste cuerpoCeleste){
             if (!this.satelites.contains(cuerpoCeleste)) {
                 satelites.add(cuerpoCeleste);
                 return true;
@@ -50,11 +49,21 @@ public class CuerpoCeleste {
 
         return false;
     }
-    private boolean equals(CuerpoCeleste cuerpoCeleste, CuerpoCeleste cuerpoCeleste2){
+    public boolean equals(CuerpoCeleste cuerpoCeleste, CuerpoCeleste cuerpoCeleste2){
         if (cuerpoCeleste.getNombre().equals(cuerpoCeleste2.getNombre())){
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode() + tipoCuerpo.hashCode() + 57;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + ": " + tipoCuerpo + ", " + periodoOrbital;
     }
 
 }
