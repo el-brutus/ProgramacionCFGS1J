@@ -1,6 +1,7 @@
 package UT6Hoja4;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class CuerpoCeleste {
@@ -49,16 +50,19 @@ public class CuerpoCeleste {
 
         return false;
     }
-    public boolean equals(CuerpoCeleste cuerpoCeleste, CuerpoCeleste cuerpoCeleste2){
-        if (cuerpoCeleste.getNombre().equals(cuerpoCeleste2.getNombre())){
-            return true;
-        }
-        return false;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        CuerpoCeleste satelite = (CuerpoCeleste) obj;
+
+        return Objects.equals(nombre, satelite.nombre) && tipoCuerpo == satelite.tipoCuerpo;
     }
 
     @Override
     public int hashCode() {
-        return nombre.hashCode() + tipoCuerpo.hashCode() + 57;
+        return Objects.hash(nombre, tipoCuerpo);
     }
 
     @Override
