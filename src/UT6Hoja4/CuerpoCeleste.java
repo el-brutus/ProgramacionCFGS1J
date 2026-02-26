@@ -62,7 +62,7 @@ public class CuerpoCeleste {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, tipoCuerpo);
+        return Objects.hash(nombre, tipoCuerpo)+ (int) (Math.random()+100);
     }
 
     @Override
