@@ -1,5 +1,7 @@
 package vuelos;
 
+import java.util.ArrayList;
+
 public class VUELO {
     public enum clase{
         TURISTA,
@@ -10,6 +12,7 @@ public class VUELO {
     private String destino;
     private String dia;
     private clase tipoclase;
+    private ArrayList<VUELO> vuelos = new ArrayList<>();
 
     public VUELO(String nvuelo, String origen, String destino, String dia, clase tipoclase) {
         this.nvuelo = nvuelo;
@@ -17,7 +20,14 @@ public class VUELO {
         this.destino = destino;
         this.dia = dia;
         this.tipoclase = tipoclase;
+        this.vuelos = new ArrayList<>();
     }
+
+    public String getNvuelo() {
+        return nvuelo;
+    }
+
+
     @Override
     public String toString(){
         return "Numero: "+this.nvuelo +", orgigen: "+origen+", destino:"+destino

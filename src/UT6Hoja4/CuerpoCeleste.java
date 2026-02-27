@@ -22,8 +22,7 @@ public class CuerpoCeleste {
         this.nombre = nombre;
         this.periodoOrbital = periodoOrbital;
         this.tipoCuerpo = tipoCuerpo;
-        this.satelites = new HashSet<>(
-        );
+        this.satelites = new HashSet<>();
 
     }
 
