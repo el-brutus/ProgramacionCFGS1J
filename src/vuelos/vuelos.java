@@ -17,13 +17,24 @@ public class vuelos {
             opcion = scanner.nextInt();
             switch (opcion){
 
-                case 1:
+                case 1://imprimir vuelos
                     System.out.println("Has elegido la opcion 1");
                     imprimirvuelos();
+                    break;
+                case 2://Buscar vuelo por numero
+                    System.out.println("Has elegido la opcion 2");
+                    buscarvuelo();
+                    break;
+                case 3://buscar vuelo por clave
+                    buscarclave();
                     break;
                 case 4:
                     System.out.println("Has elegido la opcion 4");
                     anyadirvuelo();
+                    break;
+
+                case 5://eliminar vuelo por numero
+                    eliminarvuelo();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...");
@@ -47,10 +58,112 @@ public class vuelos {
     }
 
     public static void imprimirvuelos(){
+        if (vuelos.isEmpty()){
+            System.out.println("No hay vuelos que imprimir");
+        }
         for (VUELO vuelo: vuelos){
             System.out.println(vuelo);
         }
+    }
 
+    public static void buscarclave(){
+        scanner.nextLine();
+        System.out.println();
+        System.out.print("Introduce una clave para buscar");
+        String clave = scanner.nextLine();
+
+        if (clave.equalsIgnoreCase("origen")){
+            System.out.println();
+            System.out.print("Introduce el origen para ver los vuelos con ese origen: ");
+            String origen = scanner.nextLine();
+            for (VUELO vuelo : vuelos){
+                if (vuelo.getOrigen().equalsIgnoreCase(origen)){
+                    System.out.println(vuelo);
+                }else {
+                    System.out.println("No hay ningun vuelo con ese origen");
+                }
+                break;
+            }
+        }
+        if (clave.equalsIgnoreCase("destino")){
+            System.out.println();
+            System.out.print("Introduce el destino para ver los vuelos con ese destino: ");
+            String destino = scanner.nextLine();
+            for (VUELO vuelo: vuelos){
+                if (vuelo.getDestino().equalsIgnoreCase(destino)){
+                    System.out.println("Vuelo buscado por destino: "+ vuelo);
+                }else{
+                    System.out.println("No hay vuelos con ese destino");
+                }
+                break;
+            }
+        }
+        if (clave.equalsIgnoreCase("dia")){
+            System.out.println();
+            System.out.print("Introduce el dia para ver los vuelos con esa fecha: ");
+            String dia = scanner.nextLine();
+            for (VUELO vuelo: vuelos){
+                if (vuelo.getDia().equalsIgnoreCase(dia)){
+                    System.out.println("Vuelo buscado por dia: "+ vuelo);
+                }else{
+                    System.out.println("No hay vuelos con ese dia");
+                }
+                break;
+            }
+        }
+        if (clave.equalsIgnoreCase("clase")){
+            System.out.println();
+            System.out.print("Introduce el destino para ver los vuelos con esa clase: ");
+            String clase = scanner.nextLine();
+            for (VUELO vuelo: vuelos){
+                if (vuelo.getTipoclase().equalsIgnoreCase(clase)){
+                    System.out.println("Vuelo buscado por clase: "+ vuelo);
+                }else{
+                    System.out.println("No hay vuelos con esa clase");
+                }
+                break;
+            }
+        }
+        if (!clave.equalsIgnoreCase("Clase")
+                ||clave.equalsIgnoreCase("Dia")
+                ||clave.equalsIgnoreCase("destino")
+                        ||clave.equalsIgnoreCase("origen")
+                ){
+            System.out.println("No existe la clave introducida");
+        }
+
+    }
+    public static void buscarvuelo(){
+        scanner.nextLine();
+        System.out.println();
+        System.out.print("Introduce el numero del vuelo: ");
+        String numero = scanner.nextLine();
+        for (VUELO vuelo : vuelos){
+            if (!vuelo.getNvuelo().equals(numero)){
+                System.out.println("El numero de vuelo no coincide con ninguno");
+            }
+            if (vuelo.getNvuelo().equals(numero)){
+                System.out.println("Vuelo encontrado: ");
+                System.out.println(vuelo);
+            }
+            break;
+        }
+
+    }
+    public static void eliminarvuelo(){
+        scanner.nextLine();
+        System.out.println();
+        System.out.print("Introduce el numero del vuelo: ");
+        String numero = scanner.nextLine();
+        for (VUELO vuelo : vuelos){
+            if (vuelo.getNvuelo().equals(numero)){
+                vuelos.remove(vuelo);
+                System.out.println("Vuelo eliminado correctamente.");
+            }else {
+                System.out.println("El vuelo no existe o el numero es incorrecto");
+            }
+            break;
+        }
     }
     public static void anyadirvuelo(){
         boolean existe = false;
