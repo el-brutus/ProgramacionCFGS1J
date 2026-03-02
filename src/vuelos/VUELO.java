@@ -27,6 +27,21 @@ public class VUELO {
         return nvuelo;
     }
 
+    public String getOrigen() {
+        return origen;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public String getTipoclase() {
+        return tipoclase.toString();
+    }
 
     @Override
     public String toString(){
