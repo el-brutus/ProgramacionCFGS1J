@@ -127,8 +127,8 @@ public class vuelos {
         if (!clave.equalsIgnoreCase("Clase")
                 ||clave.equalsIgnoreCase("Dia")
                 ||clave.equalsIgnoreCase("destino")
-                        ||clave.equalsIgnoreCase("origen")
-                ){
+                ||clave.equalsIgnoreCase("origen")
+        ){
             System.out.println("No existe la clave introducida");
         }
 
